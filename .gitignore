@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#project dummies
+rest-countries-api-with-color-theme-switcher-master

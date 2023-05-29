@@ -1,10 +1,12 @@
+import Navbar from '../components/navbar'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <div className='font-bold text-red-700'>haiudhasiuyd</div>
+      <Navbar />
+      <div className='font-bold'>Halo sanak sadoalahnyo</div>
     </>
   )
 }
