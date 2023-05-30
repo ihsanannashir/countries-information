@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 function CountriesCard(props) {
   return (
-    <div className="rounded-md bg-white dark:bg-dark-element w-[80%] md:w-[250px] mx-4 lg:m-0 shadow-md">
+    <div className="rounded-md bg-white dark:bg-dark-element w-[80%] md:w-[250px] mx-4 lg:m-0 shadow-md transition duration-300 ease-in-out hover:-translate-y-2">
       <Link to={`./countries/${props.id}`}>
         <img
             src={props.image}
@@ -59,7 +59,7 @@ function App() {
           key={idx}
           id={idx}
           title={item.name}
-          image={item.flags.png}
+          image={item.flags.svg}
           pop={item.population}
           region={item.region}
           capital={item.capital}
