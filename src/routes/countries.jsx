@@ -15,7 +15,7 @@ export default function Countries() {
   return (
     <div className='space-y-12'>
       <Link to={`/`}>
-        <div className='bg-white dark:bg-dark-element flex flex-row w-28 py-2 shadow-lg rounded-sm mt-8 items-center justify-center space-x-2 transition duration-300 ease-in-out hover:-translate-y-1'>
+        <div className='bg-white dark:bg-dark-element flex flex-row w-28 py-2 shadow-lg rounded-sm mt-8 items-center justify-center space-x-2 transition duration-300 ease-in-out hover:scale-110'>
           <BsArrowLeft size={18}/>
           <span className='font-semibold text-sm'>Back</span>
         </div>
@@ -50,7 +50,7 @@ export default function Countries() {
                   if (idx === cont.currencies.length - 1) {
                     return <span key={idx}>{item.name}</span>
                   }
-                  return <span key={idx}>{item.name},</span>
+                  return <span key={idx}>{item.name}, </span>
                 })}
               </div>
               <div>
@@ -69,11 +69,11 @@ export default function Countries() {
             <div className='font-semibold text-lg'>Border Countries:</div>
             <div className='mt-2 mb-6 flex flex-wrap gap-3'>
               {cont.borders ? cont.borders.map((item, idx) => {
-                return <span key={idx} className='bg-white dark:bg-dark-element px-4 py-2 shadow-md text-sm md:text-base transition duration-300 ease-in-out hover:-translate-y-1'>{contParse[item].name}</span>
+                return <span key={idx} className='bg-white dark:bg-dark-element px-4 py-2 shadow-md text-sm md:text-base transition duration-300 ease-in-out hover:scale-110'>{item === "UNK" ? "Kosovo " : contParse[item].name}</span>
               }) : "None"}
             </div>
           </div>
-          
+
         </div>
       </div>
       
