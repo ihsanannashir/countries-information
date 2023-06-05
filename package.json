@@ -10,7 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.7.0",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource-variable/nunito-sans": "^5.0.3",
     "country-data": "^0.0.31",
+    "framer-motion": "^10.12.16",
     "i18n-iso-countries": "^7.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

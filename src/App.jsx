@@ -2,7 +2,13 @@ import './App.css'
 import { Link } from 'react-router-dom'
 import data from './json/data.json'
 import PropTypes from 'prop-types';
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsChevronDown } from "react-icons/bs";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+} from '@chakra-ui/react'
 
 function CountriesCard(props) {
   return (
@@ -43,21 +49,40 @@ CountriesCard.defaultProps = {
   capital: 'N/A',
 };
 
+const regionFilter = [
+  { region: 'Africa' },
+  { region: 'America' },
+  { region: 'Asia' },
+  { region: 'Europe' },
+  { region: 'Oceania' },
+]
+
 function App() {
 
   return (
     <>
-    <div className='flex flex-col space-y-4 md:flex-row md:justify-between my-4'>
-      <div className="relative block text-light-input dark:text-white shadow-lg shadow-gray-400/10 rounded-lg">
+    <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-4 md:space-y-0'>
+      <div className="relative text-light-input dark:text-white shadow-lg shadow-gray-400/10 rounded-lg">
         <button type="submit" className="absolute inset-y-0 left-3 flex items-center pl-2">
           <BsSearch color='grey' size={18}/>
         </button>
-        <input className="block w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm" placeholder="Search for a country..." type="text" name="search"/>
+        <input className="w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm" placeholder="Search for a country..." type="text" name="search"/>
       </div>
 
-      <div>
-      Filter
-      </div>
+      <Menu matchWidth={true}>
+        <MenuButton className='bg-white text-sm w-[225px] dark:text-white shadow-lg shadow-gray-400/10 rounded-lg font-semibold  h-12 md:h-auto' px={0} my={0}>
+          <div className='flex justify-between mx-4 items-center'>
+            <span>Filter by Region</span>
+            <BsChevronDown />
+          </div>
+        </MenuButton>
+        <MenuList borderWidth='0px' py={1} px={0} borderRadius='lg' className='rounded-lg shadow-lg shadow-gray-400/10'>
+          {regionFilter.map((item, idx) => {
+            return <MenuItem key={idx} fontWeight='semibold' fontSize='sm' w={'full'} my={0} mx={0}>{item.region}</MenuItem>
+          })}
+        </MenuList>
+      </Menu>
+
     </div>
 
     <div className='my-6 flex flex-wrap justify-center lg:justify-between gap-y-12'>
