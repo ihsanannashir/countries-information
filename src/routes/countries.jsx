@@ -39,19 +39,19 @@ export default function Countries() {
               <div><span className='font-semibold'>Population:</span> {cont.population.toLocaleString("en-US")}</div>
               <div><span className='font-semibold'>Region:</span> {cont.region}</div>
               <div><span className='font-semibold'>Sub Region:</span> {cont.subregion}</div>
-              <div><span className='font-semibold'>Capital:</span> {cont.capital}</div>
+              <div><span className='font-semibold'>Capital:</span> {cont.capital ? cont.capital : "N/A"}</div>
             </div>
 
             <div className='text-sm md:text-base space-y-2'>
               <div><span className='font-semibold'>Top Level Domain:</span> {cont.topLevelDomain}</div>
               <div>
                 <span className='font-semibold'>Currencies: </span>
-                {cont.currencies.map((item, idx) => {
+                {cont.currencies ? cont.currencies.map((item, idx) => {
                   if (idx === cont.currencies.length - 1) {
                     return <span key={idx}>{item.name}</span>
                   }
                   return <span key={idx}>{item.name}, </span>
-                })}
+                }) : "N/A"}
               </div>
               <div>
                 <span className='font-semibold'>Languages: </span>

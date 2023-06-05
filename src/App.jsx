@@ -61,7 +61,7 @@ function App() {
 
   return (
     <>
-    <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-4 md:space-y-0'>
+    <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-8 md:space-y-0'>
       <div className="relative text-light-input dark:text-white shadow-lg shadow-gray-400/10 rounded-lg">
         <button type="submit" className="absolute inset-y-0 left-3 flex items-center pl-2">
           <BsSearch color='grey' size={18}/>
@@ -70,7 +70,7 @@ function App() {
       </div>
 
       <Menu matchWidth={true}>
-        <MenuButton className='bg-white text-sm w-[225px] dark:text-white shadow-lg shadow-gray-400/10 rounded-lg font-semibold  h-12 md:h-auto' px={0} my={0}>
+        <MenuButton className='bg-white dark:bg-dark-element text-sm w-[225px] dark:text-white shadow-lg shadow-gray-400/10 rounded-lg font-semibold  h-12 md:h-auto' px={0} my={0}>
           <div className='flex justify-between mx-4 items-center'>
             <span>Filter by Region</span>
             <BsChevronDown />
@@ -85,7 +85,7 @@ function App() {
 
     </div>
 
-    <div className='my-6 flex flex-wrap justify-center lg:justify-between gap-y-12'>
+    <div className='my-8 flex flex-wrap justify-center lg:justify-between gap-y-12'>
       {data.map((item, idx) => {
         return <CountriesCard
           key={idx}
