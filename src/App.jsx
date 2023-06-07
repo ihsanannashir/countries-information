@@ -11,11 +11,11 @@ import { useState } from 'react';
 import CountriesCard from '../components/CountriesCard';
 
 const regionFilter = [
-  { region: 'Africa' },
-  { region: 'Americas' },
-  { region: 'Asia' },
-  { region: 'Europe' },
-  { region: 'Oceania' },
+  { region: 'Africa', display: 'Africa' },
+  { region: 'Americas', display: 'America' },
+  { region: 'Asia', display: 'Asia' },
+  { region: 'Europe', display: 'Europe' },
+  { region: 'Oceania', display: 'Oceania' },
 ]
 
 function App() {
@@ -27,7 +27,6 @@ function App() {
     })
     setRegions(newData)
   }
-  // onClick={getEurope(item.region)
 
   return (
     <>
@@ -55,7 +54,7 @@ function App() {
               my={0}
               mx={0}
               onClick={() => getRegion(item.region)}
-              >{item.region}</MenuItem>
+              >{item.display}</MenuItem>
           })}
         </MenuList>
       </Menu>
@@ -66,7 +65,7 @@ function App() {
       {regions.map((item, idx) => {
         return <CountriesCard
           key={idx}
-          id={idx}
+          id={item.numericCode}
           title={item.name}
           image={item.flags.svg}
           pop={item.population}
@@ -82,6 +81,5 @@ function App() {
 export default App
 
 // - Search for a country using an `input` field
-// - Filter countries by region
 // - Click through to the border countries on the detail page
 // - Toggle the color scheme between light and dark mode *(optional)*

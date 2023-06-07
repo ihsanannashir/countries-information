@@ -6,11 +6,23 @@ import {countries as contParse} from 'country-data';
 
 export default function Countries() {
     let { countriesId } = useParams();
-    const cont = data[countriesId]
 
-    // const contId = data.map((item, idx) => {
-    //   return item.alpha3Code
-    // })
+    const arr = data.filter((item) => {
+      return item.numericCode === countriesId.toString()
+    })
+
+    const cont = arr[0]
+
+    const getBorderDetails = cont.borders.map((borderCountres) => {
+      return borderCountres
+    })
+
+    const findNum = getBorderDetails.map((y) => {
+      const i = data.filter((newName) => {
+        return newName.alpha3Code === y
+      })
+      return i[0].numericCode
+    })
 
   return (
     <div className='space-y-12'>
@@ -69,7 +81,7 @@ export default function Countries() {
             <div className='font-semibold text-lg'>Border Countries:</div>
             <div className='mt-2 mb-6 flex flex-wrap gap-3'>
               {cont.borders ? cont.borders.map((item, idx) => {
-                return <span key={idx} className='bg-white dark:bg-dark-element px-4 py-2 shadow-md text-sm md:text-base transition duration-300 ease-in-out hover:scale-110'>{item === "UNK" ? "Kosovo " : contParse[item].name}</span>
+                return <span key={idx} className='bg-white dark:bg-dark-element px-4 py-2 shadow-md text-sm md:text-base transition duration-300 ease-in-out hover:scale-110'><Link to={`/countries/${findNum[idx]}`}>{item === "UNK" ? "Kosovo " : contParse[item].name}</Link></span>
               }) : "None"}
             </div>
           </div>
