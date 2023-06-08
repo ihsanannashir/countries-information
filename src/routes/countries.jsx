@@ -24,11 +24,11 @@ export default function Countries() {
     })
 
   return (
-    <div className='space-y-12'>
+    <div className='space-y-12 bg-light-bg dark:bg-dark-bg md:-mt-[76px] md:pt-[76px] min-h-screen'>
       <Link to={`/`}>
-        <div className='bg-white dark:bg-dark-element flex flex-row w-28 py-2 shadow-lg rounded-sm mt-8 items-center justify-center space-x-2 transition duration-300 ease-in-out hover:scale-110'>
+        <div className='bg-light-bg dark:bg-dark-element flex flex-row w-28 py-2 shadow-lg rounded-sm mt-8 items-center justify-center space-x-2 transition duration-300 ease-in-out hover:scale-110'>
           <BsArrowLeft size={18}/>
-          <span className='font-semibold text-sm'>Back</span>
+          <span className='font-semibold text-sm dark:text-white'>Back</span>
         </div>
       </Link>
 
@@ -41,7 +41,7 @@ export default function Countries() {
           />
         </div>
 
-        <div className='space-y-8 lg:space-y-6 lg:w-1/2 lg:ml-[5%]'>
+        <div className='space-y-8 lg:space-y-6 lg:w-1/2 lg:ml-[5%] dark:text-white'>
           <div className='font-bold text-2xl md:text-3xl'>{cont.name}</div>
 
           <div className='lg:flex lg:justify-between space-y-8 lg:space-y-0'>

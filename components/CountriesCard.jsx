@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const CountriesCard = memo((props) => {
     return (
-      <div className="rounded-md bg-white dark:bg-dark-element w-[80%] md:w-[250px] mx-4 lg:m-0 shadow-md transition duration-300 ease-in-out hover:scale-105">
+      <div className="rounded-md bg-white dark:bg-dark-element w-[80%] md:w-[250px] mx-4 lg:m-0 shadow-md transition duration-300 ease-in-out hover:scale-105 text-light-text dark:text-white">
         <Link to={`./countries/${props.id}`}>
           <img
               src={props.image}

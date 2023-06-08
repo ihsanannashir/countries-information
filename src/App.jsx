@@ -35,26 +35,26 @@ function App() {
     setRegions(data)
     setCurrentFilter("All")
   }
-
   return (
     <>
-    <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-8 md:space-y-0'>
-      <div className="relative text-light-text dark:text-white shadow-lg shadow-gray-400/10 rounded-lg">
+    <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-8 md:space-y-0 bg-light-bg dark:bg-dark-bg'>
+      <div className="relative text-light-text dark:text-white shadow-lg rounded-lg bg-white dark:bg-dark-element">
         <button type="submit" className="absolute inset-y-0 left-3 flex items-center pl-2">
           <BsSearch color='grey' size={18}/>
         </button>
-        <input className="w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm placeholder:text-light-input" placeholder="Search for a country..." type="text" name="search" onChange={event => setQuery(event.target.value)}/>
+        <input className="w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm placeholder:text-light-input dark:placeholder:text-white dark:text-white bg-white dark:bg-dark-element" placeholder="Search for a country..." type="text" name="search" onChange={event => setQuery(event.target.value)}/>
       </div>
 
       <Menu matchWidth={true}>
-        <MenuButton className='bg-white dark:bg-dark-element text-sm w-[225px] dark:text-white shadow-lg shadow-gray-400/10 rounded-lg font-semibold  h-12 md:h-auto' px={0} my={0}>
+        <MenuButton className='bg-white dark:bg-dark-element text-sm w-[225px] dark:text-white shadow-lg rounded-lg font-semibold  h-12 md:h-auto' px={0} my={0}>
           <div className='flex justify-between mx-4 items-center'>
             <span>{currentFilter}</span>
             <BsChevronDown />
           </div>
         </MenuButton>
-        <MenuList borderWidth='0px' py={1} px={0} borderRadius='lg' className='rounded-lg shadow-lg shadow-gray-400/10'>
+        <MenuList borderWidth='0px' py={1} px={0} borderRadius='lg' className='rounded-lg shadow-lg shadow-gray-400/10 dark:bg-dark-bg'>
           <MenuItem
+          className='bg-light-bg dark:bg-dark-element dark:text-white dark:hover:bg-dark-bg'
           fontWeight='semibold'
           fontSize='sm' w={'full'}
           my={0}
@@ -63,6 +63,7 @@ function App() {
           {regionFilter.map((item, idx) => {
             return <MenuItem
               key={idx}
+              className='bg-light-bg dark:bg-dark-element dark:text-white dark:hover:bg-dark-bg'
               fontWeight='semibold'
               fontSize='sm' w={'full'}
               my={0}

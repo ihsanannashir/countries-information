@@ -36,8 +36,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ChakraProvider theme={theme}>
       <section className='bg-light-bg dark:bg-dark-bg min-h-screen overflow-x-hidden'>
         <Navbar />
-        <section className='flex justify-center'>
-          <section className='w-[90%] md:w-[85%] xl:max-w-[1200px]'>
+        <section className='flex justify-center bg-light-bg dark:bg-dark-bg'>
+          <section className='w-[90%] md:w-[85%] xl:max-w-[1200px] bg-light-bg dark:bg-dark-bg'>
             <RouterProvider router={router} />
           </section>
         </section>
