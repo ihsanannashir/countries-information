@@ -12,12 +12,11 @@ export default function Countries() {
     })
 
     const cont = arr[0]
-
-    const getBorderDetails = cont.borders.map((borderCountres) => {
+    const getBorderDetails = cont.borders?.map((borderCountres) => {
       return borderCountres
     })
 
-    const findNum = getBorderDetails.map((y) => {
+    const findNum = getBorderDetails?.map((y) => {
       const i = data.filter((newName) => {
         return newName.alpha3Code === y
       })

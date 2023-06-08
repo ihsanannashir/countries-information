@@ -43,5 +43,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </section>
       </section>
     </ChakraProvider>
+    
   </React.StrictMode>,
 )

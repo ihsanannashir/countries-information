@@ -20,32 +20,46 @@ const regionFilter = [
 
 function App() {
   const [regions, setRegions] = useState(data)
+  const [query, setQuery] = useState("")
+  const [currentFilter, setCurrentFilter] = useState("Filter by Region")
 
-  function getRegion (cont) {
+  const getRegion = (cont, show) => {
     const newData = data.filter((item) => {
       return item.region === cont
     })
     setRegions(newData)
+    setCurrentFilter(show)
+  }
+
+  const getAllRegions = () => {
+    setRegions(data)
+    setCurrentFilter("All")
   }
 
   return (
     <>
     <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-8 md:space-y-0'>
-      <div className="relative text-light-input dark:text-white shadow-lg shadow-gray-400/10 rounded-lg">
+      <div className="relative text-light-text dark:text-white shadow-lg shadow-gray-400/10 rounded-lg">
         <button type="submit" className="absolute inset-y-0 left-3 flex items-center pl-2">
           <BsSearch color='grey' size={18}/>
         </button>
-        <input className="w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm" placeholder="Search for a country..." type="text" name="search"/>
+        <input className="w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm placeholder:text-light-input" placeholder="Search for a country..." type="text" name="search" onChange={event => setQuery(event.target.value)}/>
       </div>
 
       <Menu matchWidth={true}>
         <MenuButton className='bg-white dark:bg-dark-element text-sm w-[225px] dark:text-white shadow-lg shadow-gray-400/10 rounded-lg font-semibold  h-12 md:h-auto' px={0} my={0}>
           <div className='flex justify-between mx-4 items-center'>
-            <span>Filter by Region</span>
+            <span>{currentFilter}</span>
             <BsChevronDown />
           </div>
         </MenuButton>
         <MenuList borderWidth='0px' py={1} px={0} borderRadius='lg' className='rounded-lg shadow-lg shadow-gray-400/10'>
+          <MenuItem
+          fontWeight='semibold'
+          fontSize='sm' w={'full'}
+          my={0}
+          mx={0}
+          onClick={() => getAllRegions()}>All</MenuItem>
           {regionFilter.map((item, idx) => {
             return <MenuItem
               key={idx}
@@ -53,7 +67,9 @@ function App() {
               fontSize='sm' w={'full'}
               my={0}
               mx={0}
-              onClick={() => getRegion(item.region)}
+              onClick={() => {
+                getRegion(item.region, item.display)
+              }}
               >{item.display}</MenuItem>
           })}
         </MenuList>
@@ -62,17 +78,25 @@ function App() {
     </div>
 
     <div className='my-8 flex flex-wrap justify-center lg:justify-between gap-y-12'>
-      {regions.map((item, idx) => {
-        return <CountriesCard
-          key={idx}
-          id={item.numericCode}
-          title={item.name}
-          image={item.flags.svg}
-          pop={item.population}
-          region={item.region}
-          capital={item.capital}
-        />
-      })}
+      {
+        regions?.filter(result => {
+          if (query === '') {
+            return result;
+          } else if (result.name.toLowerCase().includes(query.toLowerCase())) {
+            return result;
+          }
+        }).map((item, idx) => {
+          return <CountriesCard
+            key={idx}
+            id={item.numericCode}
+            title={item.name}
+            image={item.flags.svg}
+            pop={item.population}
+            region={item.region}
+            capital={item.capital}
+          />
+        })
+      }
     </div>
     </>
   )
@@ -80,6 +104,4 @@ function App() {
 
 export default App
 
-// - Search for a country using an `input` field
-// - Click through to the border countries on the detail page
 // - Toggle the color scheme between light and dark mode *(optional)*
