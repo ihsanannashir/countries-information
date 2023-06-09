@@ -35,12 +35,15 @@ function App() {
     setRegions(data)
     setCurrentFilter("All")
   }
+
+  
+
   return (
     <>
     <div className='flex flex-col md:flex-row md:justify-between my-4 space-y-8 md:space-y-0 bg-light-bg dark:bg-dark-bg'>
       <div className="relative text-light-text dark:text-white shadow-lg rounded-lg bg-white dark:bg-dark-element">
         <button type="submit" className="absolute inset-y-0 left-3 flex items-center pl-2">
-          <BsSearch color='grey' size={18}/>
+          <BsSearch size={18}/>
         </button>
         <input className="w-full md:w-[430px] rounded-lg py-4 pl-14 pr-3 shadow-sm focus:outline-none text-sm placeholder:text-light-input dark:placeholder:text-white dark:text-white bg-white dark:bg-dark-element" placeholder="Search for a country..." type="text" name="search" onChange={event => setQuery(event.target.value)}/>
       </div>
@@ -104,5 +107,3 @@ function App() {
 }
 
 export default App
-
-// - Toggle the color scheme between light and dark mode *(optional)*

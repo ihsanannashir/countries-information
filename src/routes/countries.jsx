@@ -5,23 +5,23 @@ import { BsArrowLeft } from "react-icons/bs";
 import {countries as contParse} from 'country-data';
 
 export default function Countries() {
-    let { countriesId } = useParams();
+  let { countriesId } = useParams();
 
-    const arr = data.filter((item) => {
-      return item.numericCode === countriesId.toString()
-    })
+  const arr = data.filter((item) => {
+    return item.numericCode === countriesId.toString()
+  })
 
-    const cont = arr[0]
-    const getBorderDetails = cont.borders?.map((borderCountres) => {
-      return borderCountres
-    })
+  const cont = arr[0]
+  const getBorderDetails = cont.borders?.map((borderCountres) => {
+    return borderCountres
+  })
 
-    const findNum = getBorderDetails?.map((y) => {
-      const i = data.filter((newName) => {
-        return newName.alpha3Code === y
-      })
-      return i[0].numericCode
+  const findNum = getBorderDetails?.map((y) => {
+    const i = data.filter((newName) => {
+      return newName.alpha3Code === y
     })
+    return i[0].numericCode
+  })
 
   return (
     <div className='space-y-12 bg-light-bg dark:bg-dark-bg md:-mt-[76px] md:pt-[76px] min-h-screen'>
